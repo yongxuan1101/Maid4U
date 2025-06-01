@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maid4U - Cleaning Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .scroll-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background-color: #007BFF;
+      width: 0%;
+      transition: width 0.2s;
+    }
+
+    .hero {
+      margin-top: 80px;
+      background: url('https://images.unsplash.com/photo-1581574208079-9b4ff5d1a037?fit=crop&w=1200&q=80') no-repeat center center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .slogan {
+      background-color: #e8f0fe;
+      padding: 2rem;
+      text-align: center;
+      font-style: italic;
+      font-weight: 600;
+      color: #007BFF;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .plans .highlight {
+      background: #d1ecf1;
+      padding: 1rem;
+      border-left: 5px solid #0c5460;
+      margin-bottom: 1rem;
+    }
+
+    .services div {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .certificate, .contact {
+      background-color: #f1f1f1;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .cta {
+      background-color: #007BFF;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 2rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Maid4U</div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#plans">Plans</a>
+        <a href="#services">Services</a>
+        <a href="#certificate">Certificate</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="scroll-bar" id="scrollBar"></div>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Professional Cleaning Services</h1>
+  </div>
+
+  <div class="slogan">
+    Maid 4U is not just a maid for you — it's made for you
+  </div>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Maid4U is your trusted cleaning partner, offering top-tier residential and commercial cleaning services. Our professionally trained team ensures every corner of your space is spotless, hygienic, and fresh.</p>
+  </section>
+
+  <section id="plans" class="plans">
+    <h2>Cleaning Plans</h2>
+    <div class="highlight">
+      <strong>Monthly Cleaning Plan (Best Recommended)</strong><br>
+      RM150/month – Full-house cleaning every 4 weeks.
+    </div>
+    <div>
+      <strong>Annual Cleaning Plan</strong><br>
+      RM1500/year – Includes 12 monthly sessions + 1 bonus deep clean.
+    </div>
+  </section>
+
+  <section class="cta">
+    Book Your Cleaning Today
+  </section>
+
+  <section id="services" class="services">
+    <h2>One-Time Services</h2>
+    <div>
+      <strong>Deep Cleaning – RM85</strong><br>
+      For a thorough top-to-bottom clean of your home.
+    </div>
+    <div>
+      <strong>Basic Cleaning – RM75</strong><br>
+      Regular tidy-up to keep your place fresh.
+    </div>
+    <div>
+      <strong>Laundry Service – RM50</strong><br>
+      Wash, dry, and fold your clothes with care.
+    </div>
+  </section>
+
+  <section id="certificate" class="certificate">
+    <h2>Certified & Trusted</h2>
+    <p>Our team holds hygiene and safety certifications to ensure we meet the highest cleaning standards.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> 123 Clean Street, Kuala Lumpur</p>
+    <p><strong>Phone:</strong> +60 12-345 6789</p>
+    <p><strong>Email:</strong> hello@maid4u.com</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Maid4U. All rights reserved.
+  </footer>
+
+  <script>
+    const scrollBar = document.getElementById('scrollBar');
+    window.onscroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (scrollTop / docHeight) * 100;
+      scrollBar.style.width = scrolled + '%';
+    };
+  </script>
+</body>
+</html>
