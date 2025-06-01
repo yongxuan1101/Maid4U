@@ -1,355 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maid4U - Professional Cleaning Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      background: #f5f9ff;
+      color: #333;
     }
-
-    body {
-      scroll-behavior: smooth;
-      background-color: #fefefe;
-    }
-
     header {
-      position: fixed;
+      background: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
       top: 0;
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-
-    nav {
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
     }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #007BFF;
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
     }
-
-    .menu {
+    nav ul {
+      list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
     }
-
-    .menu a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
+    nav ul li {
+      cursor: pointer;
       position: relative;
+      font-weight: 600;
     }
-
-    .menu a.active::after {
-      content: '';
+    nav ul li:hover {
+      color: #ffc107;
+    }
+    /* Scroll bar effect under nav menu */
+    .scroll-bar {
       position: absolute;
-      bottom: -5px;
+      height: 4px;
+      background: #ffc107;
+      bottom: 0;
       left: 0;
-      height: 3px;
-      background: #007BFF;
-      width: 100%;
+      transition: width 0.3s ease, left 0.3s ease;
+      border-radius: 2px;
     }
 
-    section {
-      padding: 100px 2rem;
+    /* Slogan on top */
+    .top-slogan {
+      background: #e0f0ff;
+      color: #007BFF;
+      font-weight: 700;
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 1.1rem;
     }
 
+    /* Hero Section */
     .hero {
-      background: url('https://source.unsplash.com/1600x900/?cleaning,maid') no-repeat center center/cover;
-      color: white;
-      height: 100vh;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABQElEQVR4nO3QsQ3CMBAF0cv+cWtuQdpF63vQhZ6yO2EjmEh2Nr9SWmv91shE2fGj0vS9nGdrFtn9cl1PtpN/d5DLQ+8TY12KLyGY0BzF8YzkWeqnlLyNk4Hy9xH3Un9JJEmSJEkSdB1E5kSZIkyQZL7gM6w1OHuDjHqP6KXtOIB/PcFovJo0q9oO7Ytz6Dk6XIoFg/w2HDnkCZ0h/9AJY1D35/vAoFOHdq1L+6pF7kvgFzXjxoOMNPZmfBdAdLXH42Bz+3kuHHYKDDkTf0YpyEcvlc3VCh6p0Xf4UJEmSJEmSJHkF4H5T4D/FZaJEmSJEmSJPgH7An/7XXiyUQKoAAAAASUVORK5CYII=') no-repeat center/cover;
+      height: 350px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .slogan-top {
-      position: absolute;
-      top: 30px;
-      background: rgba(0, 123, 255, 0.9);
       color: white;
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-shadow: 0 0 10px #000;
+      text-align: center;
+      padding: 0 20px;
     }
-
     .hero h1 {
       font-size: 3rem;
-      margin-bottom: 1rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .hero button {
+      background: #ffc107;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .hero button:hover {
+      background: #e0a800;
     }
 
-    .cta-btn {
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    }
+    section h2 {
+      color: #007BFF;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #007BFF;
+      padding-bottom: 5px;
+      font-weight: 700;
+    }
+
+    /* About Us */
+    #about img {
+      margin-top: 15px;
+      border-radius: 12px;
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+    }
+
+    /* Plans */
+    #plans .plan-strip {
       background: #007BFF;
       color: white;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-      transition: background 0.3s;
-    }
-
-    .cta-btn:hover {
-      background: #0056b3;
-    }
-
-    .strips {
-      background: #f0f0f0;
-      padding: 20px;
-      margin: 2rem 0;
-      border-left: 5px solid #007BFF;
-      border-radius: 10px;
-    }
-
-    .plans, .one-time, .certificates, .contact, .testimonials, .faq {
-      background: #f9f9f9;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-
-    .plan-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .plan-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      flex: 1;
-      min-width: 250px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .plan-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .plan-card h3 {
-      color: #007BFF;
-      margin-bottom: 0.5rem;
-    }
-
-    .services-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-left: 1rem;
-    }
-
-    .services-list li {
+      font-weight: 700;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      margin: 15px 0;
       font-size: 1.1rem;
     }
-
-    .contact-info {
-      line-height: 2;
+    #plans .plans-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    .slogan {
-      font-size: 1.5rem;
-      color: #007BFF;
-      font-weight: bold;
+    #plans .plan {
+      flex: 1 1 300px;
+      background: #e0f0ff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgb(0 123 255 / 0.3);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    #plans .plan:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgb(0 123 255 / 0.5);
+    }
+    #plans .plan h3 {
+      margin-bottom: 15px;
       text-align: center;
-      margin-top: 2rem;
     }
-
-    .one-time-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .one-time-container img {
-      border-radius: 10px;
+    #plans .plan img {
       width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      height: 180px;
+      object-fit: cover;
     }
 
-    .testimonial-box {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
+    /* One-Time Services */
+    #one-time .services-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    .faq-item {
-      margin-bottom: 1rem;
-    }
-
-    .faq-item h4 {
-      color: #007BFF;
-    }
-
-    footer {
-      background: #007BFF;
-      color: white;
+    #one-time .service {
+      background: #fffbe6;
+      border-radius: 12px;
+      padding: 15px;
+      flex: 1 1 280px;
+      box-shadow: 0 3px 10px rgb(255 193 7 / 0.3);
+      transition: transform 0.3s ease;
+      cursor: default;
       text-align: center;
-      padding: 1rem;
-      border-top: 5px solid #0056b3;
+    }
+    #one-time .service:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 18px rgb(255 193 7 / 0.6);
+    }
+    #one-time .service img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    #one-time .service h4 {
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #d48806;
+    }
+    #one-time .service p {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Certificates */
+    #certificates img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      margin-top: 15px;
+      border-radius: 12px;
+    }
+
+    /* Contact Us */
+    #contact p, #contact address {
+      font-size: 1.1rem;
+      margin: 8px 0;
+    }
+    #contact .slogan {
+      font-weight: 700;
+      color: #007BFF;
+      font-size: 1.3rem;
+      margin-top: 15px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 15px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      #plans .plans-container, #one-time .services-list {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="top-slogan">
+    Maid 4U is not just a maid for you — it’s made for you
+  </div>
+
   <header>
+    <div class="logo">Maid4U</div>
     <nav>
-      <div class="logo">Maid4U</div>
-      <div class="menu">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#plans">Plans</a>
-        <a href="#one-time">One-Time Services</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact Us</a>
-      </div>
+      <ul id="navMenu">
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Plans</li>
+        <li>Services</li>
+        <li>Contact Us</li>
+      </ul>
+      <div class="scroll-bar" id="scrollBar"></div>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <div class="slogan-top">"Maid 4U is not just a maid for you — it’s made for you"</div>
+  <section class="hero">
     <h1>Professional Cleaning Services</h1>
-    <button class="cta-btn">Book Now</button>
+    <button onclick="alert('Booking feature coming soon!')">Book Now</button>
   </section>
 
   <section id="about">
-    <div class="strips">
-      <h2>About Us</h2>
-      <p>Maid4U is a professional cleaning company dedicated to providing top-quality cleaning services with a personal touch. Our team is trained, trustworthy, and always ready to make your space sparkle.</p>
-    </div>
-    <img src="https://source.unsplash.com/1000x600/?cleaning-team" alt="About Image" width="100%">
+    <h2>About Us</h2>
+    <p>
+      Maid4U is a professional cleaning company dedicated to providing top-quality cleaning services with a personal touch. We tailor our services to meet your needs and ensure your home or office is sparkling clean.
+    </p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABa0lEQVR4nO3QsQ3AIAwEwcv+vboW0iLxEX6i2TbJMvLU4ju0lB4vy2MfJk1urTycvyq15iHqGzpVYJf8VnmUnX6sI4P+J7GepfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nd9pHxqD8z8XHqHl2yfaCyD5A3h2y1ScuH0Uooa9+j8i+Nf+AD6p8Gx3NdbkAAAAASUVORK5CYII=" alt="About Us Cleaning" />
   </section>
 
-  <section class="plans" id="plans">
-    <div class="strips">
-      <h2>Cleaning Plans</h2>
-      <p>Choose the plan that fits your lifestyle best.</p>
-    </div>
-    <div class="plan-container">
-      <div class="plan-card">
+  <section id="plans">
+    <h2>Plans</h2>
+
+    <div class="plan-strip">Monthly Cleaning Plans (Best Recommended)</div>
+    <div class="plans-container">
+      <div class="plan">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABOElEQVR4nO3RMQ0AMAjDQPv/pQvQ+ZrSw6RRJAluX4T+P2TKLMurIeeXwr68eO8TMRfbvjTjxF+9a+7HKJHmAe5NGUd3jWQO4M39nRGBOBz3R1HA5cUYfOA4RkDHyRBgxcnSBNHnRwD0JMQe5bgoQAJEmSJEkSZL4L8Kku7uUPgO+wVAAAAAElFTkSuQmCC" alt="Monthly Cleaning Plan" />
         <h3>Monthly Cleaning Plan</h3>
-        <p>Best recommended! Enjoy a fresh home every month with reliable service.</p>
+        <p>Regular cleaning every month to keep your home spotless.</p>
       </div>
-      <div class="plan-card">
+      <div class="plan">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABOklEQVR4nO3QMQ0AMAjDQPv/pQvQ+ZrSw6RRJAluX4T+P2TKLMurIeeXwr68eO8TMRfbvjTjxF+9a+7HKJHmAe5NGUd3jWQO4M39nRGBOBz3R1HA5cUYfOA4RkDHyRBgxcnSBNHnRwD0JMQe5bgoQAJEmSJEkSZL4L8Kku7uUPgO+wVAAAAAElFTkSuQmCC" alt="Annual Cleaning Plan" />
         <h3>Annual Cleaning Plan</h3>
-        <p>Book in advance and save more while keeping your space spotless all year round.</p>
+        <p>Comprehensive yearly cleaning for a deep refresh.</p>
       </div>
     </div>
   </section>
 
-  <section class="one-time" id="one-time">
-    <div class="strips">
-      <h2>One-Time Services</h2>
-      <p>Perfect for special occasions or when you just need a quick refresh.</p>
-    </div>
-    <div class="one-time-container">
-      <img src="https://source.unsplash.com/800x600/?cleaning-service" alt="One-time Services Image">
-      <ul class="services-list">
-        <li><strong>Basic Cleaning</strong> — RM75</li>
-        <li><strong>Deep Cleaning</strong> — RM125</li>
-        <li><strong>Laundry Service</strong> — RM50</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="certificates" id="certificates">
-    <div class="strips">
-      <h2>Certificates</h2>
-      <p>We are certified for hygiene, professionalism, and trustworthiness.</p>
-      <img src="https://source.unsplash.com/1000x500/?certificate,award" alt="Certificates" width="100%">
-    </div>
-  </section>
-
-  <section class="testimonials" id="testimonials">
-    <div class="strips">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-box">
-        <p>"Absolutely amazing service! My house has never been this clean. Highly recommend!"</p>
-        <p><strong>- Sarah L.</strong></p>
+  <section id="one-time">
+    <h2>One-Time Services</h2>
+    <div class="services-list">
+      <div class="service">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABWklEQVR4nO3RQW6DMAwE0A/++uRQ7a4yHbNKduhJNZ8r7bJ64l/YB6Tuf7snEo+DlXu4/B/lx7nSm85v+xQ9rRm+B8C4Xa7MlLPV/xB+2ju0SP+aAT+3eGUZfRAAd7oPoL9ebwG6HWtTgJs1mcQC93yN0lxXkcW7FgN91Sc0Z0b5XoTt3oz2fvibnx7Fqny1p8BjuTymv8zNYAPyAewD4D+AHwbq6duY0ZyX5qTfM5gsx7jdLt+lfCWfyB9R14neFqX5o8zscJ6EupT9x1y1pnQwug+lhW+X/HlHpqSfjVPp7JZwtW7JQvLwpZhXqQ/+J8rVdBvTu+lkvXx8HLTPkEy3zTseQ7V2MJGz4vElwd4U53E9R7d+Cvtw9eHgDRKrR6xPoy3QAAAABJRU5ErkJggg==" alt="Basic Cleaning" />
+        <h4>Basic Cleaning</h4>
+        <p>RM75</p>
       </div>
-      <div class="testimonial-box">
-        <p>"The team was punctual and professional. They even cleaned the spots I usually miss!"</p>
-        <p><strong>- Ahmad K.</strong></p>
+      <div class="service">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABWklEQVR4nO3RQW6DMAwE0A/++uRQ7a4yHbNKduhJNZ8r7bJ64l/YB6Tuf7snEo+DlXu4/B/lx7nSm85v+xQ9rRm+B8C4Xa7MlLPV/xB+2ju0SP+aAT+3eGUZfRAAd7oPoL9ebwG6HWtTgJs1mcQC93yN0lxXkcW7FgN91Sc0Z0b5XoTt3oz2fvibnx7Fqny1p8BjuTymv8zNYAPyAewD4D+AHwbq6duY0ZyX5qTfM5gsx7jdLt+lfCWfyB9R14neFqX5o8zscJ6EupT9x1y1pnQwug+lhW+X/HlHpqSfjVPp7JZwtW7JQvLwpZhXqQ/+J8rVdBvTu+lkvXx8HLTPkEy3zTseQ7V2MJGz4vElwd4U53E9R7d+Cvtw9eHgDRKrR6xPoy3QAAAABJRU5ErkJggg==" alt="Deep Cleaning" />
+        <h4>Deep Cleaning</h4>
+        <p>RM125</p>
       </div>
-    </div>
-  </section>
-
-  <section class="faq" id="faq">
-    <div class="strips">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h4>How do I book a cleaning?</h4>
-        <p>Click the "Book Now" button at the top or contact us directly via phone or email.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What areas do you serve?</h4>
-        <p>We currently serve all areas within KL and selected nearby regions.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="strips">
-      <h2>Contact Us</h2>
-      <div class="contact-info">
-        <p><strong>Address:</strong> 123 Clean Street, KL City</p>
-        <p><strong>Phone:</strong> +60 12-345 6789</p>
-        <p><strong>Email:</strong> support@maid4u.com</p>
-      </div>
-    </div>
-    <div class="slogan">"Maid 4U is not just a maid for you — it’s made for you"</div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Maid4U. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    const sections = document.querySelectorAll('section');
-    const menuLinks = document.querySelectorAll('.menu a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      menuLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="service">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAABWklEQVR4nO3RQW6DMAwE0A/++uRQ7a4yHbNKduhJNZ8r7bJ64l/YB6Tuf7snEo+DlXu4/B/lx7nSm85v+xQ9rRm+B8C4Xa7MlLPV/xB+2ju0
+```
